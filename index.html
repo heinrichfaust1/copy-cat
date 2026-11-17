@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    display: grid;
+    background-color: #fdfaec;
+    color: #dcddde;
+    margin: 0;
+    padding: 30px;
+}
+
+.painting {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 415px;
+    height: 500px;
+    overflow: hidden;
+    background-color: #f37121;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f37121;
+    background-image:
+    radial-gradient(#e26325, transparent 65%),
+    linear-gradient(135deg, #f45d1b, #e26325);
+    z-index: 1;
+}
+
+.color-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.stroke {
+    position: absolute;
+    border-radius: 8px 3px 12px 5px;
+    opacity: 0.94;
+}
+
+.stroke {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        130deg,
+        rgba(255,255,255,0.09),
+        transparent 45%,
+        rgba(25, 7, 1, 0.06),
+    );
+}
+
+.darkorange {
+    z-index: 2;
+}
+
+.darkorange .stroke {
+    background-color: #e94c19;
+}
+
+.darkorange1 {
+    top: 40px;
+    left: 75px;
+    width: 125px;
+    height: 135px;
+    transform: rotate(-12deg);
+    border-radius: 15px 5px 20px 8px;
+}
+
+.darkorange2 {
+    top: 155px;
+    left: 185px;
+    width: 145px;
+    height: 150px;
+    transform: rotate(13deg);
+    border-radius: 5px 18px 8px 15px;
+}
+
+.darkorange3 {
+    top: 335px;
+    left: 45px;
+    width: 140px;
+    height: 125px;
+    transform: rotate(12deg);
+    border-radius: 12px 5px 18px 8px;
+}
+
+.darkorange4 {
+    top: 330px;
+    right: 20px;
+    width: 130px;
+    height: 140px;
+    transform: rotate(-15deg);
+    border-radius: 5px 15px 8px 18px;
+}
+
+.yellow {
+    z-index: 3;
+}
+
+.yellow .stroke {
+    background-color: #f4a21e;
+}
+
+.yellow1 {
+    top: 15px;
+    left: 230px;
+    width: 105px;
+    height: 85px;
+    transform: rotate(12deg);
+    border-radius: 15px 5px 12px 8px;
+}
+
+.yellow2 {
+    top: 145px;
+    left: 85px;
+    width: 95px;
+    height: 75px;
+    transform: rotate(-15deg);
+    border-radius: 8px 15px 5px 12px;
+}
+
+.yellow3 {
+    top: 310px;
+    left: 175px;
+    width: 100px;
+    height: 60px;
+    transform: rotate(18deg);
+    border-radius: 5px 15px 10px 8px;
+}
+
+
+.coral {
+    z-index: 4;
+}
+
+.coral .stroke {
+    background-color: #ed4b26;
+}
+
+.coral1 {
+    top: 75px;
+    left: 155px;
+    width: 95px;
+    height: 100px;
+    transform: rotate(-18deg);
+    border-radius: 15px 8px 5px 12px;
+}
+
+.coral2 {
+    top: 235px;
+    right: 75px;
+    width: 100px;
+    height: 125px;
+    transform: rotate(16deg);
+    border-radius: 5px 12px 15px 8px;
+}
+
+.coral3 {
+    top: 390px;
+    left: 235px;
+    width: 100px;
+    height: 85px;
+    transform: rotate(-12deg);
+    border-radius: 12px 5px 15px 8px;
+}
+
+.peach {
+    z-index: 5;
+}
+
+.peach .stroke {
+    background-color: #f26a21;
+}
+
+.peach1 {
+    top: 110px;
+    left: 25px;
+    width: 110px;
+    height: 105px;
+    transform: rotate(14deg);
+    border-radius: 10px 5px 15px 8px;
+}
+
+.peach2 {
+    top: 30px;
+    right: 25px;
+    width: 95px;
+    height: 115px;
+    transform: rotate(-14deg);
+    border-radius: 5px 15px 8px 12px;
+}
+
+.peach3 {
+    bottom: 35px;
+    right: 35px;
+    width: 100px;
+    height: 95px;
+    transform: rotate(-17deg);
+    border-radius: 8px 15px 5px 12px;
+}
+
+
+.accent {
+    position: absolute;
+    z-index: 6;
+    background-color: #f9a81a;
+    border-radius: 4px 12px 3px 8px;
+}
+
+.accent1 {
+    top: 55px;
+    left: 180px;
+    width: 55px;
+    height: 60px;
+    transform: rotate(20deg);
+}
+
+.accent2 {
+    top: 320px;
+    left: 70px;
+    width: 65px;
+    height: 45px;
+    transform: rotate(-15deg);
+}
+
+.redaccent {
+   position: absolute;
+    z-index: 6;
+    background-color: #e63525;
+    border-radius: 4px 12px 3px 8px
+}
+
+.redaccent1 {
+    top: 260px;
+    left: 150px;
+    width: 55px;
+    height: 45px;
+    transform: rotate(-15deg)}
+
+.redaccent2 {
+    top: 140px;
+    left: 170px;
+    width: 45px;
+    height: 45px;
+    transform: rotate(-15deg)}
+
+.backstroke {
+    position: absolute;
+    z-index: 6;
+    background-color: #f47c20;
+    border-radius: 4px 12px 3px 8px;
+}
+
+.backstroke1 {
+    top: 175px;
+    right: 35px;
+    width: 55px;
+    height: 65px;
+    transform: rotate(18deg);
+}
+
+.backstroke2 {
+    bottom: 65px;
+    left: 170px;
+    width: 60px;
+    height: 45px;
+    transform: rotate(-12deg);
+}
+
+.dark {
+    position: absolute;
+    z-index: 8;
+    background-color: #3e3935;
+    border-radius: 3px 5px 2px 4px;
+}
+
+.dark1 {
+    top: 145px;
+    left: 85px;
+    width: 65px;
+    height: 13px;
+    transform: rotate(-12deg);
+}
+
+.dark1::after {
+    content: " ";
+    position: absolute;
+    top: 2px;
+    right: -8px;
+    width: 18px;
+    height: 8px;
+    background-color: #211914;
+    border-radius: 50%;
+}
+
+.dark2 {
+    top: 105px;
+    right: 110px;
+    width: 38px;
+    height: 65px;
+    transform: rotate(20deg);
+    border-radius: 3px 5px 2px 4px;
+}
+
+
+.dark3 {
+    top: 240px;
+    left: 255px;
+    width: 25px;
+    height: 55px;
+    transform: rotate(15deg);
+    border-radius: 2px 5px 3px 4px;
+}
+
+.dark4 {
+    top: 335px;
+    right: 80px;
+    width: 30px;
+    height: 60px;
+    transform: rotate(25deg);
+    border-radius: 3px 5px 2px 4px;
+}
+
+.frame {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    border: 2px solid #040101;
+}
+
+@media (max-width: 550px) {
+    .painting {
+        width: 90vw;
+        height: auto;
+        aspect-ratio: 0.9 / 1;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="painting">
+
+    <div class="background"></div>
+
+    <div class="color-group darkorange">
+        <div class="stroke darkorange1"></div>
+        <div class="stroke darkorange2"></div>
+        <div class="stroke darkorange3"></div>
+        <div class="stroke darkorange4"></div>
+
+    </div>
+
+    <div class="color-group yellow">
+        <div class="stroke yellow1"></div>
+          <div class="stroke yellow2"></div>
+          <div class="stroke yellow3"></div>
+    </div>
+
+    <div class="color-group coral">
+        <div class="stroke coral1"></div>
+        <div class="stroke coral2"></div>
+        <div class="stroke coral3"></div>
+
+    </div>
+
+    <div class="color-group peach">
+        <div class="stroke peach1"></div>
+        <div class="stroke peach2"></div>
+        <div class="stroke peach3"></div>
+    </div>
+
+    <div class="accent accent1"></div>
+    <div class="accent accent2"></div>
+
+    <div class="redaccent redaccent1"></div>
+    <div class="redaccent redaccent2"></div>
+   
+    <div class="backstroke backstroke1"></div>
+    <div class="backstroke backstroke2"></div>
+
+    <div class="dark dark1"></div>
+    <div class="dark dark2"></div>
+    <div class="dark dark3"></div>
+    <div class="dark dark4"></div>
+
+    <div class="frame"></div>
+</div>
+
+</body>
+</html>
